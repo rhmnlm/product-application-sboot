@@ -1,0 +1,21 @@
+server:
+  port: 8118
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/application
+    schema: productschema
+    username: postgres
+    password: password
+    initialization-mode: always
+    continue-on-error: 'true'
+    initialize: 'true'
+  jpa:
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        default_schema: productschema
+    hibernate:
+      ddl-auto: update
+      show-sql: true
