@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 @RestController
 @CrossOrigin
@@ -25,7 +28,7 @@ public class ProductController {
     public Page<Product> getProductWithPagination(
             @RequestParam int pageNum, int pageSize
     ){
-        Pageable pageable = PageRequest.of(pageNum, pageSize);
+        Pageable pageable = PageRequest.of(pageNum, pageSize,  Sort.by("id"));
         return productService.getProductsWithPagination(pageable);
     }
 
@@ -43,6 +46,8 @@ public class ProductController {
     public Product addNewProduct(
             @RequestBody Product requestProduct
     ){
+        LocalDateTime update_time = LocalDateTime.now();
+        requestProduct.setUpdated_at(update_time);
         return productService.addOrUpdateProduct(requestProduct);
     }
 
@@ -51,6 +56,8 @@ public class ProductController {
             @PathVariable String code,
             @RequestBody Product requestProduct
     ){
+        LocalDateTime update_time = LocalDateTime.now();
+        requestProduct.setUpdated_at(update_time);
         return productService.addOrUpdateProduct(requestProduct);
     }
 

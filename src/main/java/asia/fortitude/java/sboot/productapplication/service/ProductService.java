@@ -53,6 +53,7 @@ public class ProductService implements IProduct{
         responseProduct.setCode(requestProduct.getCode());
         responseProduct.setDescription(requestProduct.getDescription());
         responseProduct.setType(requestProduct.getType());
+        responseProduct.setUpdated_at((requestProduct.getUpdated_at()));
     }
 
 }

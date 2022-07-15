@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -23,6 +24,8 @@ public class Product implements Serializable {
     private String brand;
     private String type;
     private String description;
+
+    private LocalDateTime updated_at;
 
 //    public static Product build(
 //            Integer id,

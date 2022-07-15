@@ -1,5 +1,7 @@
 --CONSTRAINT UNIQUE UX_product_code (code)
 --ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+--DROP TABLE productschema.products
+
 CREATE TABLE productschema.products (
   id serial NOT NULL,
   code VARCHAR(9) NOT NULL,
